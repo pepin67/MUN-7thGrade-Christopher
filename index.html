@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Spaces - Golden Valley School</title>
+    <!-- Chart.js for the Dashboard section -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #12519C;
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #12519C;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #27AODB;
+        }
+        /* Thin three-color bar under the header */
+        .color-bar {
+            height: 6px;
+            display: flex;
+        }
+        .bar-1 { background-color: #12519C; flex: 1; }
+        .bar-2 { background-color: #27AODB; flex: 1; }
+        .bar-3 { background-color: #F6C401; flex: 1; }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #12519C;
+        }
+        .highlight-yellow {
+            background-color: #F6C401;
+            padding: 2px 6px;
+            color: #000;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        .statistic {
+            font-size: 20px;
+            color: #27AODB;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #27AODB;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background-color: #12519C;
+        }
+        .signs-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .sign-card {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            border: 1px solid #eaeaea;
+            border-top: 4px solid #27AODB;
+            background: #fff;
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .chart-box {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #eaeaea;
+        }
+        .help-box {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-left: 6px solid #12519C;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with menu links -->
+    <header>
+        <div class="logo">Safe Spaces <span class="highlight-yellow">GVS</span></div>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#whatis">Safe Space</a>
+            <a href="#about">About Us</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#help">Get Help</a>
+        </nav>
+    </header>
+
+    <!-- Thin three-color bar under the header -->
+    <div class="color-bar">
+        <div class="bar-1"></div>
+        <div class="bar-2"></div>
+        <div class="bar-3"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <h1>Your well-being matters at <span style="color: #27AODB;">Golden Valley School</span>.</h1>
+        <div class="statistic">Statistic: 85% of students feel safer when they know who to talk to during stressful times.</div>
+        <a href="#help" class="btn">Get help</a>
+    </section>
+
+    <!-- What is a Safe Space -->
+    <section id="whatis">
+        <h2>What is a Safe Space?</h2>
+        <p>A safe space is an environment where Golden Valley School students can feel secure, respected, and free from judgment or harm, allowing them to express themselves openly.</p>
+        
+        <h3 style="color: #27AODB; margin-top: 30px;">Three signs of a Safe Space:</h3>
+        <div class="signs-container">
+            <div class="sign-card">
+                <h3>1. Active Listening</h3>
+                <p>People listen to your concerns without interrupting or judging you.</p>
+            </div>
+            <div class="sign-card">
+                <h3>2. Confidentiality</h3>
+                <p>What you share is kept private and respected to protect your privacy and trust.</p>
+            </div>
+            <div class="sign-card">
+                <h3>3. Zero Tolerance for Bullying</h3>
+                <p>Harassment or bullying is never accepted, and swift support is always available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About us -->
+    <section id="about" style="background-color: #fafafa;">
+        <h2>About us</h2>
+        <p>We are dedicated 7th-grade students at Golden Valley School who made this website to ensure that every classmate has a reliable place to turn to, reducing stress and promoting a secure school community for everyone.</p>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard">
+        <h2>Dashboard</h2>
+        <p>Sample data tracking student well-being and support metrics across campus.</p>
+        
+        <div class="charts-grid">
+            <div class="chart-box">
+                <canvas id="chart1"></canvas>
+            </div>
+            <div class="chart-box">
+                <canvas id="chart2"></canvas>
+            </div>
+            <div class="chart-box">
+                <canvas id="chart3"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get help -->
+    <section id="help">
+        <div class="help-box">
+            <h2>Get help</h2>
+            <p>If you don't feel safe, talk to the counselor <strong>Mrs. Gómez</strong>.</p>
+            <p><strong>Email:</strong> counselor@goldenvalley.ed.cr</p>
+            <p><strong>Phone:</strong> +506 2200-0000</p>
+            <p style="margin-top: 20px; color: #d9534f; font-weight: bold;">Emergency: 911</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        Golden Valley School, 2026
+    ></footer>
+
+    <!-- JavaScript to render the 3 Chart.js charts -->
+    <script>
+        // Chart 1: Sample data - Support Requests
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                datasets: [{
+                    label: 'Sample data: Inquiries',
+                    data: [3, 5, 2, 6, 4],
+                    backgroundColor: '#12519C'
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // Chart 2: Sample data - Safe Space Usage
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Sample data: Visits',
+                    data: [12, 19, 15, 22],
+                    borderColor: '#27AODB',
+                    backgroundColor: 'rgba(39, 173, 221, 0.1)',
+                    fill: true
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // Chart 3: Sample data - Resource Satisfaction
+        const ctx3 = document.getElementById('chart3').getContext('2d');
+        new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['Very Satisfied', 'Satisfied', 'Neutral'],
+                datasets: [{
+                    label: 'Sample data: Feedback',
+                    data: [70, 20, 10],
+                    backgroundColor: ['#12519C', '#27AODB', '#F6C401']
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+</body>
+</html>
